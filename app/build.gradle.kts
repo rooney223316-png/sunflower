@@ -63,13 +63,16 @@ android {
   }
 
   kotlinOptions {
-    // work-runtime-ktx 2.1.0 and above now requires Java 8
     jvmTarget = JavaVersion.VERSION_17.toString()
 
-    // Enable Coroutines and Flow APIs
-    freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
-    freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlinx.coroutines.FlowPreview"
+    freeCompilerArgs += "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+    freeCompilerArgs += "-Xopt-in=kotlinx.coroutines.FlowPreview"
+
+    freeCompilerArgs += "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api"
+    freeCompilerArgs += "-opt-in=androidx.compose.foundation.ExperimentalFoundationApi"
+    freeCompilerArgs += "-opt-in=androidx.compose.animation.ExperimentalAnimationApi"
   }
+
   buildFeatures {
     compose = true
     dataBinding = true
